@@ -1,0 +1,7 @@
+<div class="weather-wrapper">
+  <ng-container *ngIf="weatherModel$ | async as weatherModels">
+    <app-weather-item *ngFor="let weatherModel of weatherModels" [city]="weatherModel" (redirectClick)="redirect($event)"></app-weather-item>
+  </ng-container>
+</div>
+
+

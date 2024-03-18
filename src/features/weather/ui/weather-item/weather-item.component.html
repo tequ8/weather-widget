@@ -1,0 +1,18 @@
+<div class="weather">
+    <div class="weather__box" (click)="redirect(city.id)">
+        <div class="weather__box--left">
+            <div class="test">
+                <img class="weather__icon" [src]="city.icon" [alt]="city.description" />
+                <span class="weather__main">{{city.description}}</span>
+            </div>
+            <div class="weather__temp">{{city.temp}}°</div>
+        </div>
+        <div class="weather__box--right">
+            <div class="weather__today">
+                <div class="weather__today--time">{{city.date | date:'HH:mm'}}</div>
+                <div class="weather__today--day"> {{city.date | date:'EE MM-dd'}}</div>
+            </div>
+            <div class="weather__city">{{city.city}}</div>
+        </div>
+    </div>
+</div>
