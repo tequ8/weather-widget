@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {WeatherModule} from "../features/weather";
 import {ENV_CONFIG, environment} from "../environments";
 import {INITIALIZE_DICTIONARIES} from "../dictionaries";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {ErrorCatchingInterceptor} from "../core/interceptors";
 
 
 @NgModule({
@@ -20,7 +22,12 @@ import {INITIALIZE_DICTIONARIES} from "../dictionaries";
     {
       provide: ENV_CONFIG,
       useValue: environment
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorCatchingInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })
